@@ -1,0 +1,11 @@
+transaction_id,date,time,amount,category,merchant,payment_method
+1,2025-01-01,10:15,120,Food,Starbucks,Card
+2,2025-01-01,14:30,250,Groceries,Tesco,Card
+3,2025-01-02,01:45,45,Food,McDonalds,Card
+4,2025-01-02,16:20,80,Transport,Uber,UPI
+5,2025-01-03,11:00,300,Clothing,H&M,Card
+6,2025-01-03,22:10,950,Electronics,BestBuy,Card
+7,2025-01-04,13:40,60,Entertainment,Netflix,Card
+8,2025-01-04,02:30,1500,Electronics,Amazon,Card
+9,2025-01-05,09:00,35,Food,Subway,Cash
+10,2025-01-05,03:15,1100,Electronics,Apple Store,Card

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Detection Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background: #222;
+            color: white;
+        }
+        .Low {
+            background-color: #c8e6c9;
+        }
+        .Medium {
+            background-color: #fff9c4;
+        }
+        .High {
+            background-color: #ffcdd2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>💳 Fraud Detection Dashboard</h1>
+
+<table id="transactions">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Merchant</th>
+            <th>Fraud Score</th>
+            <th>Risk Level</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+fetch("http://127.0.0.1:5000/transactions")
+    .then(response => response.json())
+    .then(data => {
+        const tableBody = document.querySelector("#transactions tbody");
+
+        data.forEach(tx => {
+            const row = document.createElement("tr");
+            row.className = tx.risk_level;
+
+            row.innerHTML = `
+                <td>${tx.transaction_id}</td>
+                <td>${tx.date}</td>
+                <td>${tx.time}</td>
+                <td>${tx.amount}</td>
+                <td>${tx.category}</td>
+                <td>${tx.merchant}</td>
+                <td>${tx.fraud_score}</td>
+                <td>${tx.risk_level}</td>
+            `;
+
+            tableBody.appendChild(row);
+        });
+    });
+</script>
+
+</body>
+</html>
